@@ -29,15 +29,18 @@ import AllProducts from "./pages/AllProducts";
 import AllCategories from "./pages/AllCategories";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
+import EditCategory from "./pages/EditCategory";
+import ProtectedRoute from "./ProtectedRoutes";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [signIn, setSignIn] = useState(true);
 
   return (
     <>
-      {signIn ? (
-        <Router>
-          <Routes>
+      <Router>
+        <Routes>
+          <Route element={<ProtectedRoute />}>
             <Route path="/" element={<ResponsiveDrawer />}>
               <Route index element={<Dashboard />} />
               <Route path="/all-user" element={<AllUsers />} />
@@ -74,14 +77,15 @@ function App() {
               <Route path="/settings/news_events" element={<NewsEvent />} />
               <Route path="/change_password" element={<ChangePassword />} />
               <Route path="/editProduct" element={<EditProduct />} />
+              <Route path="/editCategory" element={<EditCategory />} />
               {/* Add more routes for other pages */}
             </Route>
-            <Route path="/logout" element={<SignInForm />} />
-          </Routes>
-        </Router>
-      ) : (
-        <SignInForm />
-      )}
+          </Route>
+
+          <Route path="/signin" element={<SignInForm />} />
+        </Routes>
+        <ToastContainer />
+      </Router>
     </>
   );
 }

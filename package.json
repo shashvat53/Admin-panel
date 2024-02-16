@@ -10,6 +10,7 @@
     "@mui/material": "^5.15.6",
     "@mui/system": "^5.15.6",
     "@mui/x-date-pickers": "^6.19.2",
+    "@mui/x-tree-view": "^6.17.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -22,6 +23,8 @@
     "react-hook-form": "^7.49.3",
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.4",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

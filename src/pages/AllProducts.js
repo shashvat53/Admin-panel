@@ -3,6 +3,7 @@ import PagePath from "../components/PagePath";
 import ProductList from "../components/ProductList";
 import { Button, MenuItem, Select, TextField, Toolbar } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const AllProducts = () => {
   const [value, setValue] = useState("");
@@ -32,7 +33,8 @@ const AllProducts = () => {
         <div>
           <Button
             variant="contained"
-            // className="bg-blue-500 hover:bg-blue-700 text-white font-bold sm:py-2 sm:px-4 rounded"
+            component={Link}
+            to="/product/add-product" // className="bg-blue-500 hover:bg-blue-700 text-white font-bold sm:py-2 sm:px-4 rounded"
             className="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded sm:py-1 sm:px-2"
           >
             Add Product

@@ -36,6 +36,8 @@ import Button from "@mui/material/Button";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { Collapse } from "@mui/material";
+import { signout } from "../helper/Auth";
+import logo from "../assets/WhatsApp Image 2024-02-16 at 18.12.23.jpeg";
 
 const drawerWidth = 240;
 
@@ -84,18 +86,16 @@ function ResponsiveDrawer(props) {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    signout();
+
     setAnchorEl(null);
   };
 
   const drawer = (
     <div>
-      <Toolbar>
-        <img
-          className="w-[150px]"
-          src="https://www.umpteeninnovation.in/static/assets/images/logo1.png"
-        />
-      </Toolbar>
-      {/* <Divider /> */}
+      <img className="w-[90px] rounded-full m-auto" src={logo} />
+
+      <Divider />
       <List className=" ">
         <ListItem disablePadding>
           <ListItemButton component={Link} to="/">
@@ -305,7 +305,7 @@ function ResponsiveDrawer(props) {
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to="/logout">
+          <ListItemButton onClick={signout} component={Link} to="/signin">
             <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>
@@ -367,7 +367,7 @@ function ResponsiveDrawer(props) {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem component={Link} to="/logout" onClick={handleClose}>
+                <MenuItem component={Link} to="/signin" onClick={handleClose}>
                   Logout
                 </MenuItem>
               </Menu>
@@ -395,6 +395,13 @@ function ResponsiveDrawer(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              overflow: "auto", // Enable scrolling
+            },
+            "& .MuiDrawer-paper::-webkit-scrollbar": {
+              display: "none", // Hide the scrollbar for WebKit browsers
+            },
+            "& .MuiDrawer-paper::-webkit-scrollbar-track": {
+              background: "transparent", // Hide scrollbar track
             },
           }}
         >
@@ -407,6 +414,13 @@ function ResponsiveDrawer(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              overflow: "auto", // Enable scrolling
+            },
+            "& .MuiDrawer-paper::-webkit-scrollbar": {
+              display: "none", // Hide the scrollbar for WebKit browsers
+            },
+            "& .MuiDrawer-paper::-webkit-scrollbar-track": {
+              background: "transparent", // Hide scrollbar track
             },
           }}
           open
